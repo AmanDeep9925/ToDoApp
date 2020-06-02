@@ -1,7 +1,7 @@
 const todo = require('../models/todoModel');
 
 module.exports.addTodo = (req,res) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     todo.create({
         description: req.body.description,
@@ -14,7 +14,7 @@ module.exports.addTodo = (req,res) => {
             return;
         }
 
-        console.log(newTodo);
+        // console.log(newTodo);
 
         return res.redirect('/');
     })

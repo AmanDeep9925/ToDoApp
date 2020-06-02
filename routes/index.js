@@ -15,7 +15,7 @@ router.get('/',homeController.app);
 
 router.post('/add-todo',addTodoController.addTodo);
 
-// router.get('/delete-todo',de)
+router.get('/delete-todo',deleteTodoController.deleteTodo);
 
 router.use('/todos',require('./todos'));
 

@@ -17,7 +17,6 @@ const todoSchema = new mongoose.Schema({
     },
     dueDate:{
         type: Date,
-        default: Date.now
     },
     isDone:{
         type:Boolean,

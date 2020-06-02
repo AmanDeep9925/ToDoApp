@@ -1,52 +1,67 @@
 <!-- App container -->
 <div class="app-container">
-    <!-- Heading container -->
-    <div class="heading-container">
-        <h1>ToDo App</h1>
-    </div>
+  <!-- Heading container -->
+  <div class="heading-container">
+    <h1>ToDo App</h1>
+  </div>
 
-    <!-- Form Container -->
-    <div class="form-container">
-        <form action="/add-todo" method="post">
-            <div class="desc-container">
-                <label for="description">Description</label>
-            <input type="text" id="description" name="description" placeholder="What you need to be done ?">
-            </div>
-            <div class="other-container">
-                <label for="category">
-                    Category
-                </label>
-                <select name="category" id="category">
-                    <option value="">Choose a Category</option>
-                    <option value="personal">Personal</option>
-                    <option value="work">Work</option>
-                    <option value="home">Home</option>
-                    <option value="outdoor">Outdoor</option>
-                    <option value="important">Important</option>
-                </select>
-                <label for="due-date">
-                    Due-Date
-                </label>
-                <input type="date" name="dueDate" id="due-date">
-            </div>
-            <!-- buttons container -->
-            <div class="btn-container">
-                <button class="add-task" type="submit">Add Task</button>
-                <button href="/"class="delete-task">Delete Task</button>
-            </div>
+  <!-- Form Container -->
+  <div id="form-container">
+    <form action="/add-todo" method="post" class="form-container">
+      <div class="desc-container">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          id="description"
+          name="description"
+          placeholder="What you need to be done ?"
+        />
+      </div>
+      <div class="other-container">
+        <div class="category-container">
+          <label for="category">
+            Category
+          </label>
+          <select name="category" id="category">
+            <option value="">Choose a Category</option>
+            <option value="personal">Personal</option>
+            <option value="work">Work</option>
+            <option value="home">Home</option>
+            <option value="outdoor">Outdoor</option>
+            <option value="important">Important</option>
+          </select>
+        </div>
+        <div class="date-container">
+          <label for="due-date">
+            Due-Date
+          </label>
+          <input type="date" name="dueDate" id="due-date" />
+        </div>
+      </div>
+      <!-- buttons container -->
+      <div class="btn-container">
+        <button class="add-task" type="submit"><i class="fas fa-plus"></i> Add Task</button>
+        <button class="delete-task"><i class="far fa-trash-alt"></i> Delete Task</button>
+      </div>
+    </form>
+  </div>
 
-            <div class="todos-container">
-                <ul class="todos">
-                    <% Todos.forEach(todo => { %>
-                        <li class="todo-items">
-                            <p> <%= todo.description %>  </p>
-                            <p> <%= todo.category %>  </p>
-                            <p> <%= todo.dueDate %>  </p>
-                            <p> <%= todo.isDone %>  </p>
-                        </li>
-                    <% }) %> 
-                </ul>
-            </div>
-        </form>
-    </div>
+  <div id="todos-container">
+    <ul class="todos">
+      <% Todos.forEach(todo => { %>
+      <li class="todo-items">
+        <div class="todo-status">
+            <i class="far fa-circle"></i>
+        </div>
+        <div class="todo-info">
+          <p class="todo-name"><%= todo.description %></p>
+          <p class="todo-date"> <i class="far fa-calendar"></i> <%= todo.dueDate.toDateString() %></p>
+        </div>
+        <div class="todo-category">
+            <button> <a href="/delete-todo/?id=<%= todo._id %>"> <%= todo.category %> </a> </button>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
 </div>
