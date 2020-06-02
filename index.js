@@ -3,10 +3,17 @@ const port = 8000;
 
 // Accessing the express
 const express = require('express');
+// Intiliazing the layouts
+const expressLayouts = require('express-ejs-layouts');
 
 // initialinzing the express
 const app  = express();
 
+// Accessing the express layouts
+app.use(expressLayouts);
+// Setting up the view engine
+app.set('view engine','ejs');
+app.set('views','./views');
 // Accessing the home home Controller
 // const homeController = require('./controllers')
 
@@ -31,9 +38,9 @@ const todo = [
     }
 ]
 // Accessing the routes
-app.use('/',require('./routes/index'));
+app.use('/',require('./routes'));
 
-app.use('/todos',require('./routes/todos'));
+
 
 // Firing up the server
 app.listen(port,(err) =>{
