@@ -17,26 +17,7 @@ app.set('views','./views');
 // Accessing the home home Controller
 // const homeController = require('./controllers')
 
-const todo = [
-    {
-        id : 1,
-        description :"Get Martha's food",
-        category : "Home",
-        dueDate : "08/06/2020"
-    },
-    {
-        id : 2,
-        description :"Get Groceries",
-        category : "Kitchen",
-        dueDate : "08/06/2020"
-    },
-    {
-        id : 3,
-        description :"Get Car Washed",
-        category : "Home",
-        dueDate : "10/06/2020"
-    }
-]
+
 // Accessing the routes
 app.use('/',require('./routes'));
 
