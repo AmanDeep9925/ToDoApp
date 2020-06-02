@@ -7,9 +7,15 @@ const express = require('express');
 const router = express.Router();
 
 // accessing the action
-const homeController = require('../controllers/home');
+const homeController = require('../controllers/homeController');
+const addTodoController = require('../controllers/addToDoController');
+const deleteTodoController = require('../controllers/deleteToDoController')
 
 router.get('/',homeController.app);
+
+router.post('/add-todo',addTodoController.addTodo);
+
+// router.get('/delete-todo',de)
 
 router.use('/todos',require('./todos'));
 

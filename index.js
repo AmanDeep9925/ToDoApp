@@ -11,12 +11,16 @@ const app  = express();
 
 // Accessing the express layouts
 app.use(expressLayouts);
+
 // Setting up the view engine
 app.set('view engine','ejs');
 app.set('views','./views');
-// Accessing the home home Controller
-// const homeController = require('./controllers')
 
+// urlEncoder
+app.use(express.urlencoded());
+
+// Accessing the static folder
+app.use(express.static('./assets'))
 
 // Accessing the routes
 app.use('/',require('./routes'));
